@@ -28,12 +28,12 @@ public class ListaClientes {
 				return true;
 			}
 		}
-		System.out.print("Cpf não encontrado!\n");
+		System.out.print("Cpf nÃ£o encontrado!\n");
 		return false;
 	}
 	
 	public String toString() {
-		return "Número de clientes cadastrados: " + listaClientes.size();
+		return "NÃºmero de clientes cadastrados: " + listaClientes.size();
 	}
 	
 }
