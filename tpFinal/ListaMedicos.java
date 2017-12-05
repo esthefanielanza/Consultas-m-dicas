@@ -9,7 +9,8 @@ public class ListaMedicos {
 	}
 
 	public void insereMedico(Medico newMedico) {
-		System.out.println("Inserindo Medico");
+		System.out.println("Inserindo Medico: " + newMedico.getNome());
+		System.out.println("Especialidade: " + newMedico.getEspecialidade());
 		listaMedicos.add(newMedico);
 	}
 	

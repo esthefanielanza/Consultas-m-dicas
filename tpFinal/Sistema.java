@@ -19,8 +19,7 @@ public class Sistema {
 	  		while ((line = buffer.readLine()) != null) {
 	  			if(line.equals(",")) {
 	  				listaMedicos.insereMedico(tmpMedico);
-	  			}
-	  			if(currentField == 0) {
+	  			} else if(currentField == 0) {
 	  				tmpMedico.setNome(line);
 	  				currentField++;
 	  			} else {
