@@ -1,5 +1,3 @@
-package tpFinal;
-
 import java.util.LinkedList;
 
 public class Especialidade {

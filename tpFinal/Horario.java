@@ -1,5 +1,3 @@
-package tpFinal;
-
 public class Horario {
     private String hora;
     private boolean disponivel;

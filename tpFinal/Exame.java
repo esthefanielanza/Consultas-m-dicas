@@ -1,5 +1,3 @@
-package tpFinal;
-
 public class Exame extends Atendimento {
     private String nomeExame;
 

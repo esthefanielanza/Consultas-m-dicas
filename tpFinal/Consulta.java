@@ -1,5 +1,3 @@
-package tpFinal;
-
 public class Consulta extends Atendimento {
     private String medicoEscolhido;
     private String especialidade;

@@ -1,5 +1,3 @@
-package tpFinal;
-
 public class Atendimento {
     private String tipoAtendimento;
     private String cliente;

@@ -1,5 +1,3 @@
-package tpFinal;
-
 public class Cliente {
 	
 	private String cpf;
