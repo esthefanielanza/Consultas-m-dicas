@@ -1,4 +1,5 @@
 public class Atendimento {
+
     private String tipoAtendimento;
     private String cliente;
     private String data;
