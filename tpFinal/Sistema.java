@@ -19,6 +19,20 @@ public class Sistema {
 	  		while ((line = buffer.readLine()) != null) {
 	  			if(line.equals(",")) {
 	  				listaMedicos.insereMedico(tmpMedico);
+	  			} else if(line.equals("Agenda")){ //Se encontrar a palavra chave "Agenda" lê cada horário de cada dia
+	  				int dia;
+	  				String[] horarios;
+	  				while(!((line = buffer.readLine()).equals("Fim Agenda"))){ //Lê dados da agenda até encontrar "Fim Agenda"
+	  					dia = Integer.parseInt((line.split(" "))[1]); //Pega o dia do mês
+	  					System.out.println("Dia: " + dia);
+
+	  					horarios = (buffer.readLine()).split(" "); //Cria um array com os horários do dia
+	  					for(int i = 0; i < horarios.length; i++){
+	  						System.out.print(horarios[i] + " ");
+	  					}
+	  					System.out.println();
+
+	  				}
 	  			} else if(currentField == 0) {
 	  				tmpMedico.setNome(line);
 	  				currentField++;
