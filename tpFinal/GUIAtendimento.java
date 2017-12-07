@@ -51,7 +51,7 @@ public class GUIAtendimento extends JFrame {
 		contentPane.add(cancelarButton);
 	}
 
-    GUIAtendimento(ListaEspecialidades listaEspecialidades) {
+    GUIAtendimento() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

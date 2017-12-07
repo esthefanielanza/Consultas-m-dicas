@@ -16,6 +16,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     public GUIEspecialidade(java.awt.Frame parent, boolean modal, ListaEspecialidades listaEspecialidades) {
         super(parent, modal);
         initComponents();
+        preencheCombobox(listaEspecialidades);
     }
 
     /**
@@ -72,6 +73,13 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 
     }//GEN-LAST:event_boxEspecialidadeActionPerformed
 
+    public void preencheCombobox(ListaEspecialidades listaEspecialidades){
+        boxEspecialidade.removeAllItems();
+        
+        for (int i = 0 ; i< listaEspecialidades.getSize(); i++){
+                boxEspecialidade.addItem(listaEspecialidades.getEspecialidadePorIndice(i).getNome());
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -118,8 +126,5 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     private javax.swing.JComboBox<String> boxEspecialidade;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
-
-    public void preencheCombobox(ListaEspecialidades listaEspecialidades){
-        
-    }
+ 
 }
