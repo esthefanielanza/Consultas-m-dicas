@@ -13,8 +13,11 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     /**
      * Creates new form GUIEspecialidade
      */
+
+    ListaEspecialidades listaEspecialidades;
     public GUIEspecialidade(java.awt.Frame parent, boolean modal, ListaEspecialidades listaEspecialidades) {
         super(parent, modal);
+        this.listaEspecialidades = listaEspecialidades
         initComponents();
         preencheCombobox(listaEspecialidades);
     }
