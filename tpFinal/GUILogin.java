@@ -22,7 +22,7 @@ public class GUILogin extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUILogin(ListaClientes listaClientes, ListaMedicos listaMedicos) {
+	public GUILogin(ListaClientes listaClientes, ListaMedicos listaMedicos, ListaEspecialidades listaEspecialidades) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -57,7 +57,7 @@ public class GUILogin extends JFrame {
 				try {
 					String cpf = cpfTextField.getText();
 					if(listaClientes.encontraCliente(cpf)) {
-						GUIAtendimento frame = new GUIAtendimento();
+						GUIAtendimento frame = new GUIAtendimento(listaEspecialidades);
 						frame.setVisible(true);
 					} else {
 						GUICadastro frame = new GUICadastro(listaClientes);
