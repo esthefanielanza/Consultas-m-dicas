@@ -17,7 +17,7 @@ public class Sistema {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					GUILogin frame = new GUILogin(listaClientes, listaMedicos);
+					GUILogin frame = new GUILogin(listaClientes, listaMedicos, listaEspecialidades);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
