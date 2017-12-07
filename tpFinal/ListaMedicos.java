@@ -22,6 +22,14 @@ public class ListaMedicos {
 			}
 		}
 	}
+
+	public Medico getMedicoPorIndice(int indice){
+		return listaMedicos.get(indice);
+	}
+
+	public int getNumeroDeMedicos(){
+		return listaMedicos.size();
+	}
 	
 	public boolean encontraMedico(String nome) {
 		for(int i = 0; i < listaMedicos.size(); i++) {

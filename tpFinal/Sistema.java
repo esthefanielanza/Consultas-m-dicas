@@ -8,8 +8,11 @@ public class Sistema {
 		File file = new File(System.getProperty("user.dir") + "//medicos"); //Pega o diretório de onde o programa foi inicializado
 		ListaClientes listaClientes = new ListaClientes();
 		ListaMedicos listaMedicos = new ListaMedicos();
+		ListaEspecialidades listaEspecialidades = new ListaEspecialidades();
 
 		listaMedicos.leMedicosArquivo(file);
+
+		listaEspecialidades.registraEspecialidades(listaMedicos);
 
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
