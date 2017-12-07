@@ -27,7 +27,7 @@ public class ListaMedicos {
 		return listaMedicos.get(indice);
 	}
 
-	public int getNumeroDeMedicos(){
+	public int getSize(){
 		return listaMedicos.size();
 	}
 	
@@ -55,6 +55,7 @@ public class ListaMedicos {
 	  		while ((line = buffer.readLine()) != null) {
 	  			if(line.equals(",")) {
 	  				insereMedico(tmpMedico);
+	  				tmpMedico = new Medico();
 	  			} else if(line.equals("Agenda")){ //Se encontrar a palavra chave "Agenda" lê cada horário de cada dia
 	  				int dia;
 	  				String[] horarios;

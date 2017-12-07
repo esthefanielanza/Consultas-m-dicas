@@ -39,7 +39,7 @@ public class ListaEspecialidades {
 	public void registraEspecialidades(ListaMedicos listaMedicos){
 		String espAux;
 		Medico medico;
-		for(int i = 0; i < listaMedicos.getNumeroDeMedicos(); i++){
+		for(int i = 0; i < listaMedicos.getSize(); i++){
 			medico = listaMedicos.getMedicoPorIndice(i);
 			espAux = medico.getEspecialidade();
 			if(encontraEspecialidade(espAux)){
