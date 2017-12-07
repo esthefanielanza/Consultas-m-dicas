@@ -32,8 +32,8 @@ public class ListaEspecialidades {
 		return false;
 	}
 
-	public String getNomeEspecialidadePorIndice(int indice){
-		return listaEspecialidades.get(indice).getNome();
+	public Especialidade getEspecialidadePorIndice(int indice){
+		return listaEspecialidades.get(indice);
 	}
 
 	public void registraEspecialidades(ListaMedicos listaMedicos){
@@ -57,6 +57,10 @@ public class ListaEspecialidades {
 				listaEspecialidades.get(i).adicionaMedico(medico);
 			}
 		}
+	}
+
+	public int getSize(){
+		return listaEspecialidades.size();
 	}
 	
 	public String toString() {
