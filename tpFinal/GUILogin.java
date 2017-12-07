@@ -57,7 +57,7 @@ public class GUILogin extends JFrame {
 				try {
 					String cpf = cpfTextField.getText();
 					if(listaClientes.encontraCliente(cpf)) {
-						GUIAtendimento frame = new GUIAtendimento(listaEspecialidades);
+						GUIAtendimento frame = new GUIAtendimento(listaMedicos, listaEspecialidades);
 						frame.setVisible(true);
 					} else {
 						GUICadastro frame = new GUICadastro(listaClientes);
