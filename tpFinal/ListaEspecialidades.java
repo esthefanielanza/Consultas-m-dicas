@@ -32,6 +32,10 @@ public class ListaEspecialidades {
 		return false;
 	}
 
+	public String getNomeEspecialidadePorIndice(int indice){
+		return listaEspecialidades.get(indice).getNome();
+	}
+
 	public void registraEspecialidades(ListaMedicos listaMedicos){
 		String espAux;
 		Medico medico;
