@@ -45,7 +45,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
             }
         });
 
-        botaoPesquisarMedicos.setText("Pesquisar Médicos");
+        botaoPesquisarMedicos.setText("Pesquisar Medicos");
         botaoPesquisarMedicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarMedicosActionPerformed(evt);
@@ -112,7 +112,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         });
         jPanel1.add(botaoCancelar);
 
-        botaoPesquisarHorarios.setText("Pesquisar Horários");
+        botaoPesquisarHorarios.setText("Pesquisar Horarios");
         botaoPesquisarHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoPesquisarHorariosActionPerformed(evt);
