@@ -28,8 +28,8 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         boxEspecialidade = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botaoCancelar = new javax.swing.JButton();
+        botaoPesquisarHorarios = new javax.swing.JButton();
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -104,16 +104,21 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 0));
 
-        jButton2.setText("Cancelar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botaoCancelar.setText("Cancelar");
+        botaoCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botaoCancelarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2);
+        jPanel1.add(botaoCancelar);
 
-        jButton3.setText("Pesquisar Horários");
-        jPanel1.add(jButton3);
+        botaoPesquisarHorarios.setText("Pesquisar Horários");
+        botaoPesquisarHorarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarHorariosActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botaoPesquisarHorarios);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,9 +130,9 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,10 +151,20 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_boxEspecialidadeActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botaoCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCancelarActionPerformed
 	setVisible(false);
 	dispose(); 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botaoCancelarActionPerformed
+
+    private void botaoPesquisarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarHorariosActionPerformed
+    GUIHorarios dialog = new GUIHorarios(new javax.swing.JFrame(), true);
+    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+        public void windowClosing(java.awt.event.WindowEvent e) {
+            System.exit(0);
+        }
+    });
+    dialog.setVisible(true);
+    }//GEN-LAST:event_botaoPesquisarHorariosActionPerformed
 
     public void preencheComboboxMedico(String especialidade){
         boxMedico.removeAllItems();    
@@ -167,11 +182,11 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botaoCancelar;
+    private javax.swing.JButton botaoPesquisarHorarios;
     private javax.swing.JButton botaoPesquisarMedicos;
     private javax.swing.JComboBox<String> boxEspecialidade;
     private javax.swing.JComboBox<String> boxMedico;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
