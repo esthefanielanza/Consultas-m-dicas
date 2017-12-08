@@ -36,6 +36,16 @@ public class ListaEspecialidades {
 		return listaEspecialidades.get(indice);
 	}
 
+	public Especialidade getEspecialidadePorNome(String nome){
+		for(Especialidade especialidade : listaEspecialidades){
+            if(especialidade.getNome().equals(nome)){
+                return especialidade;
+            }
+        }
+        System.out.println("Especialidade não encontrada");
+        return null;
+	}
+
 	public void registraEspecialidades(ListaMedicos listaMedicos){
 		String espAux;
 		Medico medico;

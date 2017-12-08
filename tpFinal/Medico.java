@@ -1,16 +1,16 @@
 public class Medico {
     private String nome;
     private String especialidade;
-//    privateAgenda agenda;
+    private Agenda agenda;
     
     public Medico() {
     	
     }
     
-    public Medico(String nome, String especialidade) {
+    public Medico(String nome, String especialidade, Agenda agenda) {
         this.nome = nome;
         this.especialidade = especialidade;
-//        this.agenda = agenda;
+        this.agenda = agenda;
     }  
     
     public String getNome() {
@@ -29,11 +29,11 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-//    public Agenda getAgenda() {
-//        return agenda;
-//    }
-//
-//    public void setAgenda(Agenda agenda) {
-//        this.agenda = agenda;
-//    }
+    public Agenda getAgenda() {
+        return agenda;
+    }
+
+    public void setAgenda(Agenda agenda) {
+        this.agenda = agenda;
+    }
 }

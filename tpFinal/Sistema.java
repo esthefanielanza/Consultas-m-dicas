@@ -9,6 +9,7 @@ public class Sistema {
 		ListaClientes listaClientes = new ListaClientes();
 		ListaMedicos listaMedicos = new ListaMedicos();
 		ListaEspecialidades listaEspecialidades = new ListaEspecialidades();
+		//Agenda agenda = new Agenda();
 
 		listaMedicos.leMedicosArquivo(file);
 

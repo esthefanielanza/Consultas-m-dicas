@@ -45,6 +45,9 @@ public class ListaMedicos {
 	public void leMedicosArquivo(File file){
 
 		Medico tmpMedico = new Medico();
+		Agenda tmpAgenda = new Agenda();
+		Data tmpData;
+		Horario tmpHorario;
 		int currentField = 0;
 		
 		try {
@@ -63,11 +66,16 @@ public class ListaMedicos {
 	  					dia = Integer.parseInt((line.split(" "))[1]); //Pega o dia do mês
 	  					System.out.println("Dia: " + dia);
 
+	  					tmpData = new Data(dia);
+
 	  					horarios = (buffer.readLine()).split(" "); //Cria um array com os horários do dia
 	  					for(int i = 0; i < horarios.length; i++){
-	  						System.out.print(horarios[i] + " ");
+	  						tmpHorario = new Horario(horarios[i], true);
+	  						tmpData.insereHorario(tmpHorario);
 	  					}
-	  					System.out.println();
+
+	  					tmpAgenda.insereData(tmpData);
+	  					tmpAgenda = new Agenda();
 
 	  				}
 	  			} else if(currentField == 0) {

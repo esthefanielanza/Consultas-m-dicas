@@ -1,12 +1,12 @@
 public class Atendimento {
 
-    private String tipoAtendimento;
+    protected String tipoAtendimento;
     private String cliente;
-    private String data;
+    private Data data;
     private Horario horario;
     private ListaAtendimento listaAtendimento;
     
-    public Atendimento(String tipoAtendimento, String cliente, String data, Horario horario) {
+    public Atendimento(String tipoAtendimento, String cliente, Data data, Horario horario) {
         this.tipoAtendimento = tipoAtendimento;
         this.cliente = cliente;
         this.data = data;
@@ -37,11 +37,11 @@ public class Atendimento {
         this.cliente = cliente;
     }
 
-    public String getData() {
+    public Data getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Data data) {
         this.data = data;
     }
 
