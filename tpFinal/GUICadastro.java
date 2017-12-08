@@ -116,10 +116,15 @@ public class GUICadastro extends JFrame {
 					String endereco = enderecoTextField.getText();
 					String telefone = telefoneTextField.getText();
 					String nascimento = nascimentoTextField.getText();
-					Cliente tmpCliente = new Cliente(cpf, nome, identidade, endereco, telefone, nascimento);
-					listaClientes.insereCliente(tmpCliente);
-					setVisible(false);
-					dispose();
+					
+					if(nome.isEmpty() || identidade.isEmpty() || cpf.isEmpty() || endereco.isEmpty() || telefone.isEmpty() || nascimento.isEmpty()) {
+						throw new Exception();
+					} else {
+						Cliente tmpCliente = new Cliente(cpf, nome, identidade, endereco, telefone, nascimento);
+						listaClientes.insereCliente(tmpCliente);
+						setVisible(false);
+						dispose();
+					}
 				} catch (Exception error) {
 					JOptionPane.showMessageDialog(null, "Verifique se os dados foram preenchidos corretamente!");
 				}
