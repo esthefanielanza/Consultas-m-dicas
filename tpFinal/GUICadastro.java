@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class GUICadastro extends JFrame {
@@ -118,15 +119,19 @@ public class GUICadastro extends JFrame {
 					String nascimento = nascimentoTextField.getText();
 					
 					if(nome.isEmpty() || identidade.isEmpty() || cpf.isEmpty() || endereco.isEmpty() || telefone.isEmpty() || nascimento.isEmpty()) {
-						throw new Exception();
+						throw new IOException("required");
+					} else if(listaClientes.encontraCliente(cpf)) {
+						throw new Exception("unique");
 					} else {
 						Cliente tmpCliente = new Cliente(cpf, nome, identidade, endereco, telefone, nascimento);
 						listaClientes.insereCliente(tmpCliente);
 						setVisible(false);
 						dispose();
 					}
-				} catch (Exception error) {
+				} catch (IOException error) {
 					JOptionPane.showMessageDialog(null, "Verifique se os dados foram preenchidos corretamente!");
+				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, "Esse CPF já está cadastrado!");
 				}
 			}
 		});

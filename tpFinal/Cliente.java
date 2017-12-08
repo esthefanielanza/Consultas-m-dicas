@@ -1,3 +1,9 @@
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.swing.JOptionPane;
+
 public class Cliente {
 	
 	private String cpf;
@@ -15,6 +21,10 @@ public class Cliente {
 		this.endereco = endereco;
 		this.telefone = telefone;
 		this.dataNascimento = dataNascimento;
+	}
+
+	public Cliente() {
+
 	}
 
 	public String getNome() {
@@ -64,4 +74,10 @@ public class Cliente {
 	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
+
+	public String toString() {
+		return cpf + "\r\n" + nome + "\r\n" + identidade + "\r\n" + endereco
+				+ "\r\n" + telefone + "\r\n" + dataNascimento + "\r\n,\r\n";
+	}
+	
 }

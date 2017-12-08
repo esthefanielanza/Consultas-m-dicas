@@ -86,6 +86,7 @@ public class ListaMedicos {
 	  				currentField = 0;
 	  			}
 	  		}
+	  		buffer.close();
 	  			
 	    } catch (Exception e){
 	    	System.out.println(e);
