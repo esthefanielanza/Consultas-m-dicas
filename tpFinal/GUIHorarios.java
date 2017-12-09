@@ -71,7 +71,7 @@ public class GUIHorarios extends javax.swing.JDialog {
             	} catch(NumberFormatException e) {
         			JOptionPane.showMessageDialog(null, "Por favor selecione um dia válido");
             	}
-            	jComboBox2.removeAllItems();    
+            	jComboBox2.removeAllItems();
             		for(int i = 0; i < listaHorarios.size(); i++) {
             			if(listaHorarios.get(i).isDisponivel())
             				jComboBox2.addItem(listaHorarios.get(i).getHora());
