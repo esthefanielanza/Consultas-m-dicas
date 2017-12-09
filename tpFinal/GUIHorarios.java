@@ -12,12 +12,13 @@
 
 public class GUIHorarios extends javax.swing.JDialog {
 
-    /**
-     * Creates new form GUIHorarios
-     */
-    public GUIHorarios(java.awt.Frame parent, boolean modal) {
+    private ListaMedicos listaMedicos;
+    
+    public GUIHorarios(java.awt.Frame parent, boolean modal, ListaMedicos listaMedicos) {
         super(parent, modal);
         initComponents();
+        this.listaMedicos = listaMedicos;
+        System.out.println(listaMedicos.getMedicoPorIndice(0).getAgenda());
     }
 
     /**
