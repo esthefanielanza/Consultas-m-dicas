@@ -6,6 +6,11 @@ public class Medico {
     public Medico() {
     	
     }
+
+    public Medico(String nome, String especialidade) {
+        this.nome = nome;
+        this.especialidade = especialidade;
+    }
     
     public Medico(String nome, String especialidade, Agenda agenda) {
         this.nome = nome;

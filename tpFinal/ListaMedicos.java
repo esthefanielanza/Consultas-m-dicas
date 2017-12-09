@@ -58,6 +58,7 @@ public class ListaMedicos {
 	  		while ((line = buffer.readLine()) != null) {
 	  			if(line.equals(",")) {
 	  				insereMedico(tmpMedico);
+	  				System.out.println(tmpMedico.getAgenda());
 	  				tmpMedico = new Medico();
 	  			} else if(line.equals("Agenda")){ //Se encontrar a palavra chave "Agenda" lê cada horário de cada dia
 	  				int dia;
@@ -75,6 +76,7 @@ public class ListaMedicos {
 	  					}
 
 	  					tmpAgenda.insereData(tmpData);
+	  					tmpMedico.setAgenda(tmpAgenda);
 	  					tmpAgenda = new Agenda();
 
 	  				}
