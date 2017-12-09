@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,13 +16,13 @@
 
 public class GUIHorarios extends javax.swing.JDialog {
 
-    private ListaMedicos listaMedicos;
+    private Medico medico;
     
-    public GUIHorarios(java.awt.Frame parent, boolean modal, ListaMedicos listaMedicos) {
+    public GUIHorarios(java.awt.Frame parent, boolean modal, Medico medico) {
         super(parent, modal);
         initComponents();
-        this.listaMedicos = listaMedicos;
-        System.out.println(listaMedicos.getMedicoPorIndice(0).getAgenda());
+        this.medico = medico;
+        System.out.println(this.medico.getAgenda());
     }
 
     /**
@@ -51,19 +55,30 @@ public class GUIHorarios extends javax.swing.JDialog {
 
         jLabel2.setText("Selecione o dia");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "Segunda, 2", "Terca, 3", "Quarta, 4", "Quinta, 5", "Sexta, 6", "Segunda, 9", "Terca, 10", "Quarta, 11", "Quinta, 12", "Sexta, 13", "Segunda, 16", "Terca, 17", "Quarta, 18", "Quinta, 19", "Sexta, 20", "Segunda, 23", "Terca, 24", "Quarta, 25", "Quinta, 26", "Sexta, 27", "Segunda, 30" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "2", "3", "4", "5", "6", "9", "10", "11", "12", "13", "16", "17", "18", "19", "20", "23", "24", "25", "26", "27", "30" }));
 
         jLabel3.setText("Selecione o horario");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nao ha horarios" }));
 
         jButton1.setText("Pesquisar Horarios");
-
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        	
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	ArrayList<Horario> listaHorarios = new ArrayList<Horario>();
+            	try {
+            		listaHorarios = medico.getAgenda().getDataPorDia(Integer.parseInt(jComboBox1.getSelectedItem().toString())).getListaHorarios();
+            	} catch(NumberFormatException e) {
+        			JOptionPane.showMessageDialog(null, "Por favor selecione um dia válido");
+            	}
+            	jComboBox2.removeAllItems();    
+            		for(int i = 0; i < listaHorarios.size(); i++) {
+            			if(listaHorarios.get(i).isDisponivel())
+            				jComboBox2.addItem(listaHorarios.get(i).getHora());
+            	    }   
+            	}
+       });
+        
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(

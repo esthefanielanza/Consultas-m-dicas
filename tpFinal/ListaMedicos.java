@@ -31,15 +31,15 @@ public class ListaMedicos {
 		return listaMedicos.size();
 	}
 	
-	public boolean encontraMedico(String nome) {
+	public Medico encontraMedico(String nome) {
 		for(int i = 0; i < listaMedicos.size(); i++) {
 			if(new String(listaMedicos.get(i).getNome()).equals(nome)) {
-				System.out.println("Cpf encontrado!\n");
-				return true;
+				System.out.println("Medico encontrado!\n");
+				return listaMedicos.get(i);
 			}
 		}
-		System.out.print("Cpf nÃ£o encontrado!\n");
-		return false;
+		System.out.print("Médico não encontrado!\n");
+		return null;
 	}
 
 	public void leMedicosArquivo(File file){

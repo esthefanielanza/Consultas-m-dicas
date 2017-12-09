@@ -20,8 +20,13 @@ public class Data {
     public void setDia(int dia){
         diaDoMes = dia;
     }
+    
+    public ArrayList<Horario> getListaHorarios() {
+		return listaHorarios;
+	}
 
-    public void insereHorario(Horario horario){
+
+	public void insereHorario(Horario horario){
         listaHorarios.add(horario);
         System.out.println(horario.getHora() + " inserido no dia " + diaDoMes);
     }
