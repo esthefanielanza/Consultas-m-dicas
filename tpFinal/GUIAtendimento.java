@@ -21,7 +21,7 @@ public class GUIAtendimento extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(3, 0, 0, 0));
+		contentPane.setLayout(new GridLayout(5, 0, 0, 0));
 		
 		JButton buttonConsulta = new JButton("Agendar consulta");
                 buttonConsulta.addActionListener(new ActionListener() {
@@ -39,8 +39,14 @@ public class GUIAtendimento extends JFrame {
 		});
 		contentPane.add(buttonConsulta);
 		
+		JButton buttonCancelarConsulta = new JButton("Cancelar Consulta");
+		contentPane.add(buttonCancelarConsulta);
+		
 		JButton buttonExame = new JButton("Agendar Exame");
 		contentPane.add(buttonExame);
+		
+		JButton buttonCancelarExame = new JButton("Cancelar Exame");
+		contentPane.add(buttonCancelarExame);
 		
 		JButton cancelarButton = new JButton("Cancelar");
 		cancelarButton.addActionListener(new ActionListener() {
