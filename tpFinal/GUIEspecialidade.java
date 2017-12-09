@@ -118,14 +118,13 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         botaoPesquisarHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	try {
-            		System.out.println("boxMedico" + boxMedico.getSelectedItem().toString());
-            		if(boxMedico.getSelectedItem().toString() == "") {
+            		if(boxMedico.getSelectedItem().toString() == "" || boxEspecialidade.getSelectedItem().toString() == "") {
             			throw new Exception();
             		} else  {
             			botaoPesquisarHorariosActionPerformed(evt);
             		}
             	} catch(Exception e) {
-					JOptionPane.showMessageDialog(null, "Verifique se os dados foram preenchidos corretamente!");
+					JOptionPane.showMessageDialog(null, "Verifique se todas as caixas foram preenchidas.");
             	}
                 
             }
