@@ -35,7 +35,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("SELEÃ‡ÃƒO DE HORÃ�RIO");
+        jLabel3.setText("SELEÇÃO DE HORÁRIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -54,7 +54,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("Selecione o mÃ©dico");
+        jLabel2.setText("Selecione o medico");
 
         boxEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,7 +64,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("SELEÃ‡ÃƒO DE ESPECIALIDADE E MÃ‰DICO");
+        jLabel4.setText("SELECAO DE ESPECIALIDADE E MEDICO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,16 +117,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         botaoPesquisarHorarios.setText("Pesquisar Horarios");
         botaoPesquisarHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	try {
-            		if(boxMedico.getSelectedItem().toString() == "" || boxEspecialidade.getSelectedItem().toString() == "") {
-            			throw new Exception();
-            		} else  {
-            			botaoPesquisarHorariosActionPerformed(evt);
-            		}
-            	} catch(Exception e) {
-					JOptionPane.showMessageDialog(null, "Verifique se todas as caixas foram preenchidas.");
-            	}
-                
+                botaoPesquisarHorariosActionPerformed(evt);
             }
         });
         jPanel1.add(botaoPesquisarHorarios);

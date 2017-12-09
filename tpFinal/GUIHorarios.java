@@ -46,20 +46,20 @@ public class GUIHorarios extends javax.swing.JDialog {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SELEÇÃO DE HORÁRIO");
+        jLabel1.setText("SELECAO DE HORARIO");
 
         jLabel2.setText("Selecione o dia");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "Segunda, 2", "Terça, 3", "Quarta, 4", "Quinta, 5", "Sexta, 6", "Segunda, 9", "Terça, 10", "Quarta, 11", "Quinta, 12", "Sexta, 13", "Segunda, 16", "Terça, 17", "Quarta, 18", "Quinta, 19", "Sexta, 20", "Segunda, 23", "Terça, 24", "Quarta, 25", "Quinta, 26", "Sexta, 27", "Segunda, 30" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "Segunda, 2", "Terca, 3", "Quarta, 4", "Quinta, 5", "Sexta, 6", "Segunda, 9", "Terca, 10", "Quarta, 11", "Quinta, 12", "Sexta, 13", "Segunda, 16", "Terca, 17", "Quarta, 18", "Quinta, 19", "Sexta, 20", "Segunda, 23", "Terca, 24", "Quarta, 25", "Quinta, 26", "Sexta, 27", "Segunda, 30" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Selecione o horário");
+        jLabel3.setText("Selecione o horario");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não há horários" }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nao ha horarios" }));
 
         jButton1.setText("Pesquisar Horarios");
 
@@ -103,7 +103,7 @@ public class GUIHorarios extends javax.swing.JDialog {
                 .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jPanel2.setLayout(new java.awt.GridLayout());
+        jPanel2.setLayout(new java.awt.GridLayout(1, 0));
 
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +114,6 @@ public class GUIHorarios extends javax.swing.JDialog {
         jPanel2.add(jButton2);
 
         jButton3.setText("Confirmar Consulta");
-        jButton3.setActionCommand("Confirmar Consulta");
         jPanel2.add(jButton3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
