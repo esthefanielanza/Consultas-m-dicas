@@ -1,6 +1,8 @@
 
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
+
 
 public class GUIEspecialidade extends javax.swing.JDialog {
     
@@ -33,7 +35,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("SELEÇÃO DE HORÁRIO");
+        jLabel3.setText("SELEÃ‡ÃƒO DE HORÃ�RIO");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -52,7 +54,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
             }
         });
 
-        jLabel2.setText("Selecione o médico");
+        jLabel2.setText("Selecione o mÃ©dico");
 
         boxEspecialidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,7 +64,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("SELEÇÃO DE ESPECIALIDADE E MÉDICO");
+        jLabel4.setText("SELEÃ‡ÃƒO DE ESPECIALIDADE E MÃ‰DICO");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -115,7 +117,17 @@ public class GUIEspecialidade extends javax.swing.JDialog {
         botaoPesquisarHorarios.setText("Pesquisar Horarios");
         botaoPesquisarHorarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoPesquisarHorariosActionPerformed(evt);
+            	try {
+            		System.out.println("boxMedico" + boxMedico.getSelectedItem().toString());
+            		if(boxMedico.getSelectedItem().toString() == "") {
+            			throw new Exception();
+            		} else  {
+            			botaoPesquisarHorariosActionPerformed(evt);
+            		}
+            	} catch(Exception e) {
+					JOptionPane.showMessageDialog(null, "Verifique se os dados foram preenchidos corretamente!");
+            	}
+                
             }
         });
         jPanel1.add(botaoPesquisarHorarios);
@@ -157,13 +169,13 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoPesquisarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarHorariosActionPerformed
-    GUIHorarios dialog = new GUIHorarios(new javax.swing.JFrame(), true);
-    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-        public void windowClosing(java.awt.event.WindowEvent e) {
-            System.exit(0);
-        }
-    });
-    dialog.setVisible(true);
+    	GUIHorarios dialog = new GUIHorarios(new javax.swing.JFrame(), true);
+    	dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+    		public void windowClosing(java.awt.event.WindowEvent e) {
+    			System.exit(0);
+    		}
+    	});
+    	dialog.setVisible(true);
     }//GEN-LAST:event_botaoPesquisarHorariosActionPerformed
 
     public void preencheComboboxMedico(String especialidade){
