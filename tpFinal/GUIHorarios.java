@@ -66,17 +66,21 @@ public class GUIHorarios extends javax.swing.JDialog {
         	
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	ArrayList<Horario> listaHorarios = new ArrayList<Horario>();
+            	jComboBox2.removeAllItems();
             	try {
             		listaHorarios = medico.getAgenda().getDataPorDia(Integer.parseInt(jComboBox1.getSelectedItem().toString())).getListaHorarios();
             	} catch(NumberFormatException e) {
         			JOptionPane.showMessageDialog(null, "Por favor selecione um dia válido");
+            	} catch(NullPointerException e) {
+            		jComboBox2.addItem("Nenhum horario disponivel");
             	}
-            	jComboBox2.removeAllItems();
+            	if(listaHorarios != null) {
             		for(int i = 0; i < listaHorarios.size(); i++) {
             			if(listaHorarios.get(i).isDisponivel())
             				jComboBox2.addItem(listaHorarios.get(i).getHora());
             	    }   
             	}
+            }
        });
         
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
