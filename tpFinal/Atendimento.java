@@ -53,7 +53,8 @@ public class Atendimento {
         this.horario = horario;
     }
    
-    public void Autorizacao(){
+    public void autorizacao(){
         
-    }  
+    }
+
 }

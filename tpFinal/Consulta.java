@@ -27,4 +27,27 @@ public class Consulta extends Atendimento {
     public String getTipoAtendimento() {
         return tipoAtendimento;
     }
+
+     public static void salvaConsulta() {
+        try {
+            FileWriter arq;
+            arq = new FileWriter("Consultas", true);
+            BufferedWriter bw = new BufferedWriter(arq);
+            bw.write(medicoEscolhido);
+            bw.newLine();
+            bw.write(especialidade);
+            bw.newLine();
+            bw.write(cliente);
+            bw.newLine();
+            bw.write(data.getDia());
+            bw.newLine();
+            bw.write(horario.getHora());
+            bw.newLine();
+            bw.write(",");
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao gravar a consulta!");
+        }
+    }
 }
