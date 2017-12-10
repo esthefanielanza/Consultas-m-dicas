@@ -1,6 +1,7 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
@@ -12,15 +13,17 @@ public class Cliente {
 	private String endereco;
 	private String telefone;
 	private String dataNascimento;
-	
+	private ArrayList<Consulta> consultas;
+                
 	public Cliente(String cpf, String nome, String identidade, String endereco, String telefone, String dataNascimento) {
-		super();
-		this.cpf = cpf;
-		this.nome = nome;
-		this.identidade = identidade;
-		this.endereco = endereco;
-		this.telefone = telefone;
-		this.dataNascimento = dataNascimento;
+            super();
+            this.cpf = cpf;
+            this.nome = nome;
+            this.identidade = identidade;
+            this.endereco = endereco;
+            this.telefone = telefone;
+            this.dataNascimento = dataNascimento;
+            consultas = new ArrayList<Consulta>();                
 	}
 
 	public Cliente() {

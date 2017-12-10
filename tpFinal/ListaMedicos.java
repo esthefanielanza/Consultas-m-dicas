@@ -38,7 +38,7 @@ public class ListaMedicos {
 				return listaMedicos.get(i);
 			}
 		}
-		System.out.print("Médico não encontrado!\n");
+		System.out.print("Medico nao encontrado!\n");
 		return null;
 	}
 

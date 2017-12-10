@@ -167,7 +167,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoPesquisarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarHorariosActionPerformed
-    	GUIHorarios2 dialog = new GUIHorarios2(listaMedicos.encontraMedico(boxMedico.getSelectedItem().toString()));
+    	GUIHorarios dialog = new GUIHorarios(listaMedicos.encontraMedico(boxMedico.getSelectedItem().toString()));
     	setVisible(false);
 		dispose();
     	dialog.addWindowListener(new java.awt.event.WindowAdapter() {
