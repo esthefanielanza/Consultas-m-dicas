@@ -8,11 +8,13 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     
     ListaEspecialidades listaEspecialidades;
     ListaMedicos listaMedicos;
+    private final String nomeCliente;
     
-    public GUIEspecialidade(java.awt.Frame parent, boolean modal, ListaMedicos listaMedicos, ListaEspecialidades listaEspecialidades) {
+    public GUIEspecialidade(java.awt.Frame parent, boolean modal, ListaMedicos listaMedicos, ListaEspecialidades listaEspecialidades, String nomeCliente) {
         super(parent, modal);
         this.listaEspecialidades = listaEspecialidades;
         this.listaMedicos = listaMedicos;
+        this.nomeCliente = nomeCliente;
         initComponents();
         preencheComboboxEspecialidade(listaEspecialidades);
     }
@@ -167,7 +169,7 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoPesquisarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarHorariosActionPerformed
-    	GUIHorarios dialog = new GUIHorarios(listaMedicos.encontraMedico(boxMedico.getSelectedItem().toString()), "Consulta");
+    	GUIHorarios dialog = new GUIHorarios(listaMedicos.encontraMedico(boxMedico.getSelectedItem().toString()), "Consulta", nomeCliente, boxEspecialidade.getSelectedItem().toString(), boxMedico.getSelectedItem().toString(), null);
     	setVisible(false);
 		dispose();
     	dialog.addWindowListener(new java.awt.event.WindowAdapter() {

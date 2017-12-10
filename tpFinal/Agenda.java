@@ -17,13 +17,12 @@ public class Agenda {
                 return data;
             }
         }
-        System.out.println("Data nÃ£o encontrada");
+        System.out.println("Data não encontrada");
         return null;
     }
 
     public void insereData(Data data) {
         listaDias.add(data);
-        System.out.println("Dia " + data.getDia() + " inserido na agenda");
     }
    
 }

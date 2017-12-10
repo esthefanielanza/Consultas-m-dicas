@@ -106,6 +106,16 @@ public class ListaClientes {
 		System.out.print("Cpf não encontrado!\n");
 		return false;
 	}
+        
+        public String encontraNomeCliente(String cpf) {
+		for(int i = 0; i < listaClientes.size(); i++) {
+			if(new String(listaClientes.get(i).getCpf()).equals(cpf)) {
+                            return listaClientes.get(i).getNome();
+			}
+		}
+		System.out.print("Cpf não encontrado!\n");
+		return "";
+	}
 	
 	public String toString() {
 		return "Número de clientes cadastrados: " + listaClientes.size();

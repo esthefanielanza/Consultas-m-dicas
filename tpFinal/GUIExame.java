@@ -17,7 +17,7 @@ public class GUIExame extends JFrame {
 
 	private JPanel contentPane;
 
-	public GUIExame() {
+	public GUIExame(String nomeCliente) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 158);
 		contentPane = new JPanel();
@@ -45,7 +45,7 @@ public class GUIExame extends JFrame {
 		btnConfirmarAgendamento.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(!comboBox.getSelectedItem().toString().equals("")) {
-					GUIHorarios dialog = new GUIHorarios(null, "Exame");
+					GUIHorarios dialog = new GUIHorarios(null, "Exame", nomeCliente, comboBox.getSelectedItem().toString(), null, comboBox.getSelectedItem().toString());
 			    	setVisible(false);
 					dispose();
 			    	dialog.addWindowListener(new java.awt.event.WindowAdapter() {

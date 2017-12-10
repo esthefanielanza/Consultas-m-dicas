@@ -1,3 +1,9 @@
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import javax.swing.JOptionPane;
+
 public class Exame extends Atendimento {
     private String nomeExame;
 
@@ -12,5 +18,5 @@ public class Exame extends Atendimento {
 
     public void setNomeExame(String nomeExame) {
         this.nomeExame = nomeExame;
-    }
+    }    
 }

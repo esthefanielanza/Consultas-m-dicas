@@ -1,5 +1,3 @@
-
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -13,6 +11,9 @@ import java.awt.Font;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
@@ -23,7 +24,7 @@ public class GUIHorarios extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUIHorarios(Medico medico, String tipoAtendimento) {
+	public GUIHorarios(Medico medico, String tipoAtendimento, String nomeCliente, String especialidade, String nomeMedico, String nomeExame) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 222);
 		contentPane = new JPanel();
@@ -100,6 +101,7 @@ public class GUIHorarios extends JFrame {
             	}
             }
 		});
+
 		
 		JLabel lblMetodoDePagamento = new JLabel("Metodo de Pagamento:");
 		lblMetodoDePagamento.setBounds(10, 101, 136, 14);
@@ -117,6 +119,7 @@ public class GUIHorarios extends JFrame {
 				dispose();
 			}
 		});
+		
 		btnNewButton.setBounds(0, 145, 212, 46);
 		contentPane.add(btnNewButton);
 		
@@ -140,6 +143,7 @@ public class GUIHorarios extends JFrame {
 	            	
 	            	if(aprovado) { 
 	            		JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
+	            		  salvaConsulta(nomeCliente, nomeMedico, especialidade, comboBox.getSelectedItem().toString(), comboBox_1.getSelectedItem().toString(), comboBox_2.getSelectedItem().toString(), tipoAtendimento, nomeExame);
 						setVisible(false);
 						dispose();
 	            	} else {
@@ -157,5 +161,40 @@ public class GUIHorarios extends JFrame {
 		
 		btnConfirmarConsulta.setBounds(209, 145, 225, 46);
 		contentPane.add(btnConfirmarConsulta);
+		
 	}
+	
+	public void salvaConsulta(String nomeCliente, String nomeMedico, String especialidade, String dia, String horario, String tipoPagamento, String tipoAtendimento, String nomeExame){
+        try {
+            FileWriter arq;
+            arq = new FileWriter("atendimentos", true);
+            BufferedWriter bw = new BufferedWriter(arq);
+            bw.write("Tipo de atendimento: " + tipoAtendimento);
+            bw.newLine();
+            bw.write("Nome Cliente: " + nomeCliente);
+            bw.newLine();
+            if(tipoAtendimento.equals("Consulta")) {
+            	bw.write("Nome Medico: " + nomeMedico);
+                bw.newLine();
+                bw.write("Especialidade: " + especialidade);
+                bw.newLine();
+            } else {
+            	bw.write("Nome Exame: " + nomeExame);
+                bw.newLine();
+            }
+            bw.write("Dia: " + dia);
+            bw.newLine();
+            bw.write("Horario: " + horario);
+            bw.newLine();
+            bw.write("Tipo Pagamento: " + tipoPagamento);
+            bw.newLine();
+            bw.write(",");
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao gravar a consulta!");
+        }
+    }
 }
+
+
