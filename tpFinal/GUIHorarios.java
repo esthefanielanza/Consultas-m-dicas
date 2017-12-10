@@ -2,18 +2,6 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Lu√≠sa
- */
-
-
 public class GUIHorarios extends javax.swing.JDialog {
 
     private Medico medico;
@@ -79,7 +67,7 @@ public class GUIHorarios extends javax.swing.JDialog {
             	try {
             		listaHorarios = medico.getAgenda().getDataPorDia(Integer.parseInt(jComboBox1.getSelectedItem().toString())).getListaHorarios();
             	} catch(NumberFormatException e) {
-        			JOptionPane.showMessageDialog(null, "Por favor selecione um dia v·lido");
+        			JOptionPane.showMessageDialog(null, "Por favor selecione um dia valido");
             	} catch(NullPointerException e) {
             		jComboBox2.addItem("Nenhum horario disponivel");
             	}
@@ -94,7 +82,7 @@ public class GUIHorarios extends javax.swing.JDialog {
         
         
         jLabel5.setText("Metodo de pagamento");
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Dinheiro", "Cart„o", "Cheque" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Dinheiro", "Cartao", "Cheque" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
             	jComboBox4.removeAllItems();
@@ -193,11 +181,11 @@ public class GUIHorarios extends javax.swing.JDialog {
     					setVisible(false);
 						dispose();
             		} else {
-            			JOptionPane.showMessageDialog(null, "Agendamento n„o autorizado");
+            			JOptionPane.showMessageDialog(null, "Agendamento nao autorizado");
     					setVisible(false);
 						dispose();
             		}
-            	} else if(jComboBox3.getSelectedItem().equals("Cart„o")) {
+            	} else if(jComboBox3.getSelectedItem().equals("Cartao")) {
             		
             	}
             }
