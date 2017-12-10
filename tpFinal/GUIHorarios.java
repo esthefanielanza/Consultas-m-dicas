@@ -186,20 +186,7 @@ public class GUIHorarios extends javax.swing.JDialog {
         jButton3.setText("Confirmar Consulta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-            	TiposAutorizacao autorizacao = new TiposAutorizacao();
-            	if(jComboBox3.getSelectedItem().toString().equals("Cortesia")) {
-            		if(autorizacao.autorizaCortesia()) {
-    					JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
-    					setVisible(false);
-						dispose();
-            		} else {
-            			JOptionPane.showMessageDialog(null, "Agendamento não autorizado");
-    					setVisible(false);
-						dispose();
-            		}
-            	} else if(jComboBox3.getSelectedItem().equals("Cartão")) {
-            		
-            	}
+            	
             }
            
         });
