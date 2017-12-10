@@ -59,7 +59,7 @@ public class GUIHorarios extends javax.swing.JDialog {
 
         jLabel2.setText("Selecione o dia");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "Segunda, 2", "Terca, 3", "Quarta, 4", "Quinta, 5", "Sexta, 6", "Segunda, 9", "Terca, 10", "Quarta, 11", "Quinta, 12", "Sexta, 13", "Segunda, 16", "Terca, 17", "Quarta, 18", "Quinta, 19", "Sexta, 20", "Segunda, 23", "Terca, 24", "Quarta, 25", "Quinta, 26", "Sexta, 27", "Segunda, 30" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "2", "3", "4", "5", "6", "9", "10", "11", "12", "13", "16", "17", "18", "19", "20", "23", "24", "25", "26", "27", "30" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -71,7 +71,27 @@ public class GUIHorarios extends javax.swing.JDialog {
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nao ha horarios" }));
 
         jButton1.setText("Pesquisar Horarios");
-
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        	
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+            	ArrayList<Horario> listaHorarios = new ArrayList<Horario>();
+            	jComboBox2.removeAllItems();
+            	try {
+            		listaHorarios = medico.getAgenda().getDataPorDia(Integer.parseInt(jComboBox1.getSelectedItem().toString())).getListaHorarios();
+            	} catch(NumberFormatException e) {
+        			JOptionPane.showMessageDialog(null, "Por favor selecione um dia válido");
+            	} catch(NullPointerException e) {
+            		jComboBox2.addItem("Nenhum horario disponivel");
+            	}
+            	if(listaHorarios != null) {
+            		for(int i = 0; i < listaHorarios.size(); i++) {
+            			if(listaHorarios.get(i).isDisponivel())
+            				jComboBox2.addItem(listaHorarios.get(i).getHora());
+            	    }   
+            	}
+            }
+        });
+        
         jLabel4.setText("Metodo de pagamento");
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cortesia", "Particular", "Convenio" }));
