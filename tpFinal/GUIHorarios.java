@@ -23,7 +23,7 @@ public class GUIHorarios extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUIHorarios(Medico medico) {
+	public GUIHorarios(Medico medico, String tipoAtendimento) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 222);
 		contentPane = new JPanel();
@@ -51,7 +51,12 @@ public class GUIHorarios extends JFrame {
 		contentPane.add(comboBox_1);
 		
 		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "2", "3", "4", "5", "6", "9", "10", "11", "12", "13", "16", "17", "18", "19", "20", "23", "24", "25", "26", "27", "30" }));
+		
+		if(tipoAtendimento.equals("Exame"))
+			comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30" }));
+		else
+			comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "2", "3", "4", "5", "6", "9", "10", "11", "12", "13", "16", "17", "18", "19", "20", "23", "24", "25", "26", "27", "30" }));
+
 		comboBox.setBounds(142, 36, 282, 20);
 		contentPane.add(comboBox);
 		comboBox.addActionListener(new java.awt.event.ActionListener() {
@@ -63,7 +68,29 @@ public class GUIHorarios extends JFrame {
             	} catch(NumberFormatException e) {
         			JOptionPane.showMessageDialog(null, "Por favor selecione um dia válido");
             	} catch(NullPointerException e) {
-            		comboBox_1.addItem("Nenhum horario disponivel");
+            		if(tipoAtendimento.equals("Exame")) {
+            			comboBox_1.addItem("8:00");
+            			comboBox_1.addItem("8:30");
+            			comboBox_1.addItem("9:00");
+            			comboBox_1.addItem("9:30");
+            			comboBox_1.addItem("10:00");
+            			comboBox_1.addItem("10:30");
+            			comboBox_1.addItem("11:00");
+            			comboBox_1.addItem("11:30");
+            			comboBox_1.addItem("12:00");
+            			comboBox_1.addItem("12:30");
+            			comboBox_1.addItem("13:00");
+            			comboBox_1.addItem("13:30");
+            			comboBox_1.addItem("14:00");
+            			comboBox_1.addItem("14:30");
+            			comboBox_1.addItem("15:00");
+            			comboBox_1.addItem("15:30");
+            			comboBox_1.addItem("16:00");
+            			comboBox_1.addItem("16:30");
+            			comboBox_1.addItem("17:00");
+            		} else {
+            			comboBox_1.addItem("Nenhum horario disponivel");
+            		}
             	}
             	if(listaHorarios != null) {
             		for(int i = 0; i < listaHorarios.size(); i++) {

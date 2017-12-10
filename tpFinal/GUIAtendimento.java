@@ -55,21 +55,33 @@ public class GUIAtendimento extends JFrame {
 		contentPane.add(buttonCancelarConsulta);
 		
 		JButton buttonExame = new JButton("Agendar Exame");
-		contentPane.add(buttonExame);
-		
-		JButton buttonCancelarExame = new JButton("Cancelar Exame");
-                buttonCancelarExame.addActionListener(new ActionListener() {
-                    public void actionPerformed(ActionEvent e) {
-                    GUICancelarExame dialog = new GUICancelarExame(new javax.swing.JFrame(), true);
-                    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                        @Override
-                        public void windowClosing(java.awt.event.WindowEvent e) {
-                            System.exit(0);
-                        }
-                    });
-                    dialog.setVisible(true);
-                }
+		buttonExame.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		GUIExame dialog = new GUIExame();
+        		dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+        			@Override
+        			public void windowClosing(java.awt.event.WindowEvent e) {
+        					System.exit(0);
+        			}
                 });
+                dialog.setVisible(true);
+        	}
+        });
+		contentPane.add(buttonExame);
+
+		JButton buttonCancelarExame = new JButton("Cancelar Exame");
+        buttonCancelarExame.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		GUICancelarExame dialog = new GUICancelarExame(new javax.swing.JFrame(), true);
+        		dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+        			@Override
+        			public void windowClosing(java.awt.event.WindowEvent e) {
+        					System.exit(0);
+        			}
+                });
+                dialog.setVisible(true);
+        	}
+        });
 		contentPane.add(buttonCancelarExame);
 		
 		JButton cancelarButton = new JButton("Cancelar");
