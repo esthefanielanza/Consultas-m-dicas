@@ -1,6 +1,12 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JOptionPane;
+
 public class Consulta extends Atendimento {
-    private String medicoEscolhido;
-    private String especialidade;
+    private static String medicoEscolhido;
+    private static String especialidade;
 
     public Consulta(String medicoEscolhido, String especialidade, String tipoAtendimento, String cliente, Data data, Horario horario) {
         super(tipoAtendimento, cliente, data, horario);

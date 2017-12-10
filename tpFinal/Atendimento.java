@@ -1,9 +1,9 @@
 public class Atendimento {
 
     protected String tipoAtendimento;
-    private String cliente;
-    private Data data;
-    private Horario horario;
+    protected static String cliente;
+    protected static Data data;
+    protected static Horario horario;
     private ListaAtendimento listaAtendimento;
     
     public Atendimento(String tipoAtendimento, String cliente, Data data, Horario horario) {
