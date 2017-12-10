@@ -92,18 +92,18 @@ public class GUIHorarios extends javax.swing.JDialog {
             }
         });
         
-        jLabel4.setText("Metodo de pagamento");
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cortesia", "Particular", "Convenio" }));
+        
+        jLabel5.setText("Metodo de pagamento");
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Dinheiro", "Cartão", "Cheque" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
 
-        jLabel5.setText("Tipo de pagamento");
-
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cortesia", "Particular", "Convenio" }));
+       
+        jLabel4.setText("Tipo de Atendimento");
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Particular", "Convenio" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -180,6 +180,11 @@ public class GUIHorarios extends javax.swing.JDialog {
         jPanel2.add(jButton2);
 
         jButton3.setText("Confirmar Consulta");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+               
+            }
+        });
         jPanel2.add(jButton3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
