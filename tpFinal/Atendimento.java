@@ -1,10 +1,10 @@
 public class Atendimento {
 
     protected String tipoAtendimento;
-    private String cliente;
-    private Data data;
-    private Horario horario;
-    private ListaAtendimento listaAtendimento;
+    static String cliente;
+    static Data data;
+    static Horario horario;
+    ListaAtendimento listaAtendimento;
     
     public Atendimento(String tipoAtendimento, String cliente, Data data, Horario horario) {
         this.tipoAtendimento = tipoAtendimento;
