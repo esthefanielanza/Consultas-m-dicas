@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -49,44 +50,83 @@ public class GUIHorarios extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setPreferredSize(new java.awt.Dimension(364, 143));
+=======
+>>>>>>> 7bbaae65bb28a5c6bf50908f2137d8bb420cf7b9
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("SELECAO DE HORARIO");
 
-        jLabel2.setText("Selecione o dia");
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "2", "3", "4", "5", "6", "9", "10", "11", "12", "13", "16", "17", "18", "19", "20", "23", "24", "25", "26", "27", "30" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
-        jLabel3.setText("Selecione o horario");
+public class GUIHorarios extends JFrame {
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nao ha horarios" }));
+	private JPanel contentPane;
+	private Boolean aprovado;
+	/**
+	 * Create the frame.
+	 */
+	public GUIHorarios(Medico medico) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 222);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("SELECAO DE HORARIO");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setBounds(10, 11, 414, 14);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblSelecioneODia = new JLabel("Selecione o dia:");
+		lblSelecioneODia.setBounds(10, 39, 136, 14);
+		contentPane.add(lblSelecioneODia);
+		
 
-        jButton1.setText("Pesquisar Horarios");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-        	
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+		JLabel lblSelecioneOHoraroi = new JLabel("Selecione o horario:");
+		lblSelecioneOHoraroi.setBounds(10, 70, 136, 14);
+		contentPane.add(lblSelecioneOHoraroi);
+		
+		JComboBox<String> comboBox_1 = new JComboBox<String>();
+		comboBox_1.setBounds(142, 67, 282, 20);
+		contentPane.add(comboBox_1);
+		
+		JComboBox<String> comboBox = new JComboBox<String>();
+		comboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione o dia", "2", "3", "4", "5", "6", "9", "10", "11", "12", "13", "16", "17", "18", "19", "20", "23", "24", "25", "26", "27", "30" }));
+		comboBox.setBounds(142, 36, 282, 20);
+		contentPane.add(comboBox);
+		comboBox.addActionListener(new java.awt.event.ActionListener() {
+        	public void actionPerformed(java.awt.event.ActionEvent evt) {
             	ArrayList<Horario> listaHorarios = new ArrayList<Horario>();
-            	jComboBox2.removeAllItems();
+            	comboBox_1.removeAllItems();
             	try {
-            		listaHorarios = medico.getAgenda().getDataPorDia(Integer.parseInt(jComboBox1.getSelectedItem().toString())).getListaHorarios();
+            		listaHorarios = medico.getAgenda().getDataPorDia(Integer.parseInt(comboBox.getSelectedItem().toString())).getListaHorarios();
             	} catch(NumberFormatException e) {
-        			JOptionPane.showMessageDialog(null, "Por favor selecione um dia valido");
+        			JOptionPane.showMessageDialog(null, "Por favor selecione um dia válido");
             	} catch(NullPointerException e) {
-            		jComboBox2.addItem("Nenhum horario disponivel");
+            		comboBox_1.addItem("Nenhum horario disponivel");
             	}
             	if(listaHorarios != null) {
             		for(int i = 0; i < listaHorarios.size(); i++) {
             			if(listaHorarios.get(i).isDisponivel())
-            				jComboBox2.addItem(listaHorarios.get(i).getHora());
+            				comboBox_1.addItem(listaHorarios.get(i).getHora());
             	    }   
             	}
             }
+<<<<<<< HEAD
         });
         
         
@@ -189,11 +229,56 @@ public class GUIHorarios extends javax.swing.JDialog {
     					JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
                                             salvaConsulta(nomeCliente, nomeMedico, especialidade, jComboBox1.getSelectedItem().toString(), jComboBox2.getSelectedItem().toString(), jComboBox3.getSelectedItem().toString());
     					setVisible(false);
+=======
+		});
+		
+		JLabel lblMetodoDePagamento = new JLabel("Metodo de Pagamento:");
+		lblMetodoDePagamento.setBounds(10, 101, 136, 14);
+		contentPane.add(lblMetodoDePagamento);
+		
+		JComboBox<String> comboBox_2 = new JComboBox<String>();
+		comboBox_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Dinheiro", "Cartão", "Cheque" , "Convenio"}));
+		comboBox_2.setBounds(142, 98, 282, 20);
+		contentPane.add(comboBox_2);
+		
+		JButton btnNewButton = new JButton("Cancelar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				setVisible(false);
+				dispose();
+			}
+		});
+		btnNewButton.setBounds(0, 145, 212, 46);
+		contentPane.add(btnNewButton);
+		
+		JButton btnConfirmarConsulta = new JButton("Confirmar Consulta");
+		btnConfirmarConsulta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!comboBox.getSelectedItem().equals("Selecione o dia") && !comboBox_1.getSelectedItem().equals("") && !comboBox_2.getSelectedItem().equals("")) {
+					TiposAutorizacao autorizacao = new TiposAutorizacao();
+					
+	            	if(comboBox_2.getSelectedItem().toString().equals("Cortesia")) {
+	            		aprovado = autorizacao.autorizaCortesia();
+	            	} else if(comboBox_2.getSelectedItem().equals("Cartão")) {
+	            		aprovado = autorizacao.autorizaCartao();
+	            	} else if(comboBox_2.getSelectedItem().equals("Dinheiro")) {
+	            		aprovado = autorizacao.autorizaDinheiro();
+	            	} else if(comboBox_2.getSelectedItem().equals("Convenio")) {
+	            		aprovado = autorizacao.autorizaConvenio();
+	            	} else {
+	            		aprovado = autorizacao.autorizaConvenio();
+	            	}
+	            	
+	            	if(aprovado) { 
+	            		JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
+						setVisible(false);
+>>>>>>> 7bbaae65bb28a5c6bf50908f2137d8bb420cf7b9
 						dispose();
-            		} else {
-            			JOptionPane.showMessageDialog(null, "Agendamento nao autorizado");
-    					setVisible(false);
+	            	} else {
+	        			JOptionPane.showMessageDialog(null, "Agendamento não autorizado");
+						setVisible(false);
 						dispose();
+<<<<<<< HEAD
             		}
             	} else if(jComboBox3.getSelectedItem().equals("Cartao")) {
             		
@@ -279,4 +364,18 @@ public class GUIHorarios extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
+=======
+	        		}
+				} else {
+					JOptionPane.showMessageDialog(null, "Por favor preencha todos os campos");
+				}
+				
+			}
+		});
+		
+		
+		btnConfirmarConsulta.setBounds(209, 145, 225, 46);
+		contentPane.add(btnConfirmarConsulta);
+	}
+>>>>>>> 7bbaae65bb28a5c6bf50908f2137d8bb420cf7b9
 }

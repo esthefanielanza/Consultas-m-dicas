@@ -5,6 +5,7 @@ public class Atendimento {
     static Data data;
     static Horario horario;
     ListaAtendimento listaAtendimento;
+
     
     public Atendimento(String tipoAtendimento, String cliente, Data data, Horario horario) {
         this.tipoAtendimento = tipoAtendimento;

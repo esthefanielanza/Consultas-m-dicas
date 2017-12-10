@@ -123,7 +123,6 @@ public class GUIEspecialidade extends javax.swing.JDialog {
 	            		if(boxMedico.getSelectedItem().toString() == "" || boxEspecialidade.getSelectedItem().toString() == "") {
 	            			throw new Exception();
 	            		} else  {
-	            			System.out.println("Próxima tela!");
 	            			botaoPesquisarHorariosActionPerformed(evt);
 	            		}
             		} catch(Exception e) {
@@ -170,7 +169,10 @@ public class GUIEspecialidade extends javax.swing.JDialog {
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
     private void botaoPesquisarHorariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarHorariosActionPerformed
+
     	GUIHorarios dialog = new GUIHorarios(new javax.swing.JFrame(), true, listaMedicos.encontraMedico(boxMedico.getSelectedItem().toString()), nomeCliente, boxEspecialidade.getSelectedItem().toString(), boxMedico.getSelectedItem().toString());
+    	setVisible(false);
+		dispose();
     	dialog.addWindowListener(new java.awt.event.WindowAdapter() {
     		public void windowClosing(java.awt.event.WindowEvent e) {
     			System.exit(0);
