@@ -15,7 +15,7 @@ public class GUIAtendimento extends JFrame {
 
 	private JPanel contentPane;
 	
-	public GUIAtendimento(ListaMedicos listaMedicos, ListaEspecialidades listaEspecialidades) {
+	public GUIAtendimento(ListaMedicos listaMedicos, ListaEspecialidades listaEspecialidades, String nomeCliente) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 223);
 		contentPane = new JPanel();
@@ -27,7 +27,7 @@ public class GUIAtendimento extends JFrame {
                 buttonConsulta.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                        
-                        GUIEspecialidade dialog = new GUIEspecialidade(new javax.swing.JFrame(), true, listaMedicos, listaEspecialidades);
+                        GUIEspecialidade dialog = new GUIEspecialidade(new javax.swing.JFrame(), true, listaMedicos, listaEspecialidades, nomeCliente);
                         dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                         @Override
                         public void windowClosing(java.awt.event.WindowEvent e) {

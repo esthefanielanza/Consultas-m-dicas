@@ -58,7 +58,7 @@ public class GUICancelarExame extends javax.swing.JDialog {
         });
         jPanel1.add(botaoCancelar);
 
-        botaoCancelarConsulta.setText("Cancelar Consulta");
+        botaoCancelarConsulta.setText("Cancelar Exame");
         botaoCancelarConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCancelarConsultaActionPerformed(evt);

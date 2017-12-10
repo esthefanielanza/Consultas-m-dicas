@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -5,12 +8,18 @@ import javax.swing.JOptionPane;
 public class GUIHorarios extends javax.swing.JDialog {
 
     private Medico medico;
+    private String nomeCliente;
+    private final String nomeMedico;
+    private final String especialidade;
     
-    public GUIHorarios(java.awt.Frame parent, boolean modal, Medico medico) {
+    public GUIHorarios(java.awt.Frame parent, boolean modal, Medico medico, String nomeCliente, String especialidade, String nomeMedico) {
         super(parent, modal);
         initComponents();
         this.medico = medico;
         System.out.println(this.medico.getAgenda());
+        this.nomeCliente = nomeCliente;
+        this.nomeMedico = nomeMedico;
+        this.especialidade = especialidade;
     }
 
     /**
@@ -178,6 +187,7 @@ public class GUIHorarios extends javax.swing.JDialog {
             	if(jComboBox3.getSelectedItem().toString().equals("Cortesia")) {
             		if(autorizacao.autorizaCortesia()) {
     					JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
+                                            salvaConsulta(nomeCliente, nomeMedico, especialidade, jComboBox1.getSelectedItem().toString(), jComboBox2.getSelectedItem().toString(), jComboBox3.getSelectedItem().toString());
     					setVisible(false);
 						dispose();
             		} else {
@@ -227,6 +237,31 @@ public class GUIHorarios extends javax.swing.JDialog {
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
+    
+    public void salvaConsulta(String nomeCliente, String nomeMedico, String especialidade, String dia, String horario, String atendimento){
+        try {
+            FileWriter arq;
+            arq = new FileWriter("Consultas", true);
+            BufferedWriter bw = new BufferedWriter(arq);
+            bw.write("Nome Cliente: " + nomeCliente);
+            bw.newLine();
+            bw.write("Nome Medico: " + nomeMedico);
+            bw.newLine();
+            bw.write("Especialidade: " + especialidade);
+            bw.newLine();
+            bw.write("Dia: " + dia);
+            bw.newLine();
+            bw.write("Horario: " + horario);
+            bw.newLine();
+            bw.write("Tipo de Atendimento: " + atendimento);
+            bw.newLine();
+            bw.write(",");
+            bw.newLine();
+            bw.close();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "Erro ao gravar a consulta!");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

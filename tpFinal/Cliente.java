@@ -13,7 +13,6 @@ public class Cliente {
 	private String endereco;
 	private String telefone;
 	private String dataNascimento;
-	private ArrayList<Consulta> consultas;
                 
 	public Cliente(String cpf, String nome, String identidade, String endereco, String telefone, String dataNascimento) {
             super();
@@ -22,8 +21,7 @@ public class Cliente {
             this.identidade = identidade;
             this.endereco = endereco;
             this.telefone = telefone;
-            this.dataNascimento = dataNascimento;
-            consultas = new ArrayList<Consulta>();                
+            this.dataNascimento = dataNascimento;              
 	}
 
 	public Cliente() {
