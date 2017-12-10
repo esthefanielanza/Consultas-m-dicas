@@ -97,13 +97,17 @@ public class GUIHorarios extends javax.swing.JDialog {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Dinheiro", "Cartão", "Cheque" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+            	jComboBox4.removeAllItems();
+            	if(!jComboBox3.getSelectedItem().toString().equals("Cortesia")) {
+            		jComboBox4.addItem("Particular");
+            		jComboBox4.addItem("Convenio");
+            	}
             }
         });
 
        
         jLabel4.setText("Tipo de Atendimento");
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Cortesia", "Particular", "Convenio" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "", "Particular", "Convenio" }));
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -182,8 +186,22 @@ public class GUIHorarios extends javax.swing.JDialog {
         jButton3.setText("Confirmar Consulta");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-               
+            	TiposAutorizacao autorizacao = new TiposAutorizacao();
+            	if(jComboBox3.getSelectedItem().toString().equals("Cortesia")) {
+            		if(autorizacao.autorizaCortesia()) {
+    					JOptionPane.showMessageDialog(null, "Agendamento realizado com sucesso!");
+    					setVisible(false);
+						dispose();
+            		} else {
+            			JOptionPane.showMessageDialog(null, "Agendamento não autorizado");
+    					setVisible(false);
+						dispose();
+            		}
+            	} else if(jComboBox3.getSelectedItem().equals("Cartão")) {
+            		
+            	}
             }
+           
         });
         jPanel2.add(jButton3);
 
