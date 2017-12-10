@@ -131,7 +131,7 @@ public class GUICadastro extends JFrame {
 				} catch (IOException error) {
 					JOptionPane.showMessageDialog(null, "Verifique se os dados foram preenchidos corretamente!");
 				} catch (Exception error) {
-					JOptionPane.showMessageDialog(null, "Esse CPF já está cadastrado!");
+					JOptionPane.showMessageDialog(null, "Esse CPF ja esta cadastrado!");
 				}
 			}
 		});
